@@ -1,0 +1,55 @@
+data:
+  class: null
+  data_type: psr_full
+  input_type: pointcloud
+  path: data/shapenet_psr
+  num_gt_points: 10000
+  num_offset: 1
+  pointcloud_n: 3000
+  pointcloud_noise: 0.005
+  pointcloud_outlier_ratio: 0.5
+model:
+  grid_res: 128 # poisson grid resolution
+  psr_sigma: 2
+  psr_tanh: True
+  normal_normalize: False
+  predict_normal: True
+  predict_offset: True
+  c_dim: 32
+  s_offset: 0.001
+  encoder: local_pool_pointnet
+  encoder_kwargs:
+    hidden_dim: 32
+    plane_type: 'grid'
+    grid_resolution: 32
+    unet3d: True
+    unet3d_kwargs:
+      num_levels: 3
+      f_maps: 32
+      in_channels: 32
+      out_channels: 32
+  decoder: simple_local
+  decoder_kwargs:
+    sample_mode: bilinear # bilinear / nearest
+    hidden_size: 32
+train:
+  batch_size: 32
+  lr: 5e-4
+  out_dir: out/shapenet/outlier_ours_1x
+  w_psr: 1
+  model_selection_metric: psr_l2
+  print_every: 100
+  checkpoint_every: 200
+  validate_every: 5000
+  backup_every: 10000
+  total_epochs: 400000
+  visualize_every: 5000
+  exp_pcl: True
+  exp_mesh: True
+  n_workers: 8
+  n_workers_val: 0
+generation:
+  exp_gt: False
+  exp_input: True
+  psr_resolution: 128
+  psr_sigma: 2

@@ -1,0 +1,9 @@
+
+inherit_from: configs/learning_based/outlier/ours_7x.yaml
+data:
+  class: ['']
+  path: data/demo/shapenet_lamp
+train:
+  out_dir: out/demo_shapenet_outlier
+test:
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/shape_as_points/models/ours_outlier_7x.pt

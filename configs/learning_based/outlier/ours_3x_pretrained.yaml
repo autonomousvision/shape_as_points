@@ -1,0 +1,5 @@
+inherit_from: configs/learning_based/outlier/ours_1x/ours.yaml
+generation:
+  generation_dir: generation_pretrained
+test:
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/shape_as_points/models/ours_outlier_1x.pt

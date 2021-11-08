@@ -1,0 +1,5 @@
+inherit_from: configs/learning_based/noise_large/ours.yaml
+generation:
+  generation_dir: generation_pretrained
+test:
+  model_file: https://s3.eu-central-1.amazonaws.com/avg-projects/shape_as_points/models/ours_noise_025.pt

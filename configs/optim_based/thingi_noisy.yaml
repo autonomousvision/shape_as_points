@@ -1,0 +1,39 @@
+data:
+  class: 'only_pcl'
+  data_type: point
+  data_path: 'data/thingi_noisy/*.ply'
+  object_id: 0
+  num_points: 20000
+model:
+  sphere_radius: 0.2
+  grid_res: 128 # poisson grid resolution
+  psr_sigma: 2
+train:
+  # lr_pcl: 2e-2
+  schedule:
+    pcl:
+      initial: 1e-2
+      interval: 700
+      factor: 0.5
+      final: 1e-3
+  out_dir:  out/thingi_noisy
+  w_reg_point: 0
+  w_chamfer: 1
+  n_sup_point: 20000
+  batch_size: 1
+  n_grow_points: 2000
+  resample_every: 200
+  subsample_vertex: False
+  total_epochs: 1600
+  print_every: 10
+  visualize_every: 2
+  checkpoint_every: 500
+  save_every: 100
+  exp_pcl: True
+  exp_mesh: True
+  o3d_show: False
+  o3d_vis_pcl: True
+  o3d_window_size: 540
+  vis_rendering: False
+  vis_vert_color: False
+  n_workers: 0
