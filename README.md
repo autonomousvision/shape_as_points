@@ -31,10 +31,8 @@ conda env create -f environment.yaml
 conda activate sap
 ```
 
-Now, you can install [PyTorch3D](https://pytorch3d.org/) 0.6.0 from the [official instruction](https://github.com/facebookresearch/pytorch3d/blob/master/INSTALL.md#3-install-wheels-for-linux) as follows
-```sh
-pip install pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py38_cu102_pyt190/download.html
-```
+Next, you should install [PyTorch3D](https://pytorch3d.org/) (**>=0.5**) yourself from the [official instruction](https://github.com/facebookresearch/pytorch3d/blob/master/INSTALL.md#3-install-wheels-for-linux).  
+
 And install [PyTorch Scatter](https://github.com/rusty1s/pytorch_scatter):
 ```sh
 conda install pytorch-scatter -c pyg
